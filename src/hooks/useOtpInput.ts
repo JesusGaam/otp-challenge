@@ -1,12 +1,9 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { type UseOtpInputReturn, type OtpValues, type handleOtpChangeType } from '../types';
 
-const useOtpInput = (otp2Evaluation: string): UseOtpInputReturn => {
-
+const useOtpInput = (): UseOtpInputReturn => {
   const [otpList, setOtpList] = useState<OtpValues>(['', '', '', '']);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
-
-
 
   const handleChange: handleOtpChangeType = (index, value) => {
     setOtpList(prev => {
@@ -90,13 +87,11 @@ const useOtpInput = (otp2Evaluation: string): UseOtpInputReturn => {
   }, []);
 
   const otpValue = useMemo(() => otpList.join(''), [otpList]);
-  const isValidOtp = otpValue === otp2Evaluation;
 
   return {
     inputRefs,
     otpList,
     otpValue,
-    isValidOtp,
     handleChange,
     handleKeyDown,
     handlePaste
