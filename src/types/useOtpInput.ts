@@ -4,7 +4,6 @@ export interface UseOtpInputReturn {
   inputRefs: React.MutableRefObject<(HTMLInputElement | null)[]>;
   otpList: OtpValues;
   otpValue: string;
-  isValidOtp: boolean;
   handleChange: handleOtpChangeType;
   handleKeyDown: (index: number, e: React.KeyboardEvent) => void;
   handlePaste: (e: React.ClipboardEvent<HTMLInputElement>) => void;
