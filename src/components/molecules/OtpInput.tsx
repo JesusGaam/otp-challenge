@@ -1,24 +1,26 @@
 
-import React, { } from "react"
+import React, { useEffect } from "react"
 import DigitInput from "../atoms/DigitInput"
 import { useOtpInput } from "../../hooks"
 
 interface OtpInputsProps {
-  otp2Validate: string;
   disabled?: boolean;
-  value?: string;
+  onChange?: (otpValue: string) => void;
 }
-const OtpInput: React.FC<OtpInputsProps> = ({ otp2Validate, disabled, }) => {
+const OtpInput: React.FC<OtpInputsProps> = ({ disabled, onChange, }) => {
 
   const {
     otpList,
     otpValue,
-    isValidOtp,
     inputRefs,
     handleChange,
     handleKeyDown,
     handlePaste,
-  } = useOtpInput(otp2Validate);
+  } = useOtpInput();
+
+  useEffect(() => {
+    onChange?.(otpValue);
+  }, [otpValue, onChange]);
 
   return (<>
     <div className="grid grid-cols-[repeat(4,24px)] gap-2">
@@ -68,7 +70,6 @@ const OtpInput: React.FC<OtpInputsProps> = ({ otp2Validate, disabled, }) => {
       </div>
     </div>
     <div>{otpValue}</div>
-    <div>{isValidOtp ? "OTP Válido" : "OTP Inválido"}</div>
   </>)
 }
 
