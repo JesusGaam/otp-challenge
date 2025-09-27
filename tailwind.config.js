@@ -11,12 +11,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Clave directa
         'white-alpha-10': '#ffffff1a',
         'white-alpha': {
           10: '#ffffff1a'
         },
-        'testpink': '#ff00ff'
       },
     },
   },
