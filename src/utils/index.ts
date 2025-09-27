@@ -8,3 +8,12 @@ export function getUrlParameter(
   const value = params.get(name);
   return value === null || value === '' ? undefined : value;
 }
+
+
+export function generateRandomNumber(length: number): string {
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += Math.floor(Math.random() * 10);
+  }
+  return result;
+}
