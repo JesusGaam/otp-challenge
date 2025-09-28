@@ -8,7 +8,6 @@ interface OtpInputsProps {
   onChange?: (otpValue: string) => void;
 }
 const OtpInput: React.FC<OtpInputsProps> = ({ disabled, onChange, }) => {
-
   const {
     otpList,
     otpValue,
@@ -23,7 +22,7 @@ const OtpInput: React.FC<OtpInputsProps> = ({ disabled, onChange, }) => {
   }, [otpValue, onChange]);
 
   return (<>
-    <div className="grid grid-cols-[repeat(4,24px)] gap-2">
+    <div className="grid grid-cols-[repeat(4,48px)] gap-2">
       <div>
         <DigitInput
           id="digit-1"
