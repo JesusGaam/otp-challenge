@@ -19,25 +19,27 @@ const DigitInput = forwardRef<HTMLInputElement, DigitInputProps>(({
     onChange?.(newValue);
   };
 
-  const baseClasses = 'font-poppins bg-white/10 rounded-[50px] w-6 h-12 text-center text-[32px] px-0';
   return (
-    <input
-      ref={ref}
-      type="text"
-      id={id}
-      name={name}
-      aria-label={ariaLabel}
-      className={`${baseClasses} ${className}`}
-      defaultValue={defaultValue}
-      value={value}
-      onChange={handleInput}
-      onKeyDown={onKeyDown}
-      onPaste={onPaste}
-      maxLength={1}
-      inputMode='numeric'
-      pattern='[0-9]*'
-      disabled={disabled}
-    />
+    <div className={'p-0 bg-white/10 border-solid border-1 rounded-lg border-transparent focus-within:border-green-500 transition-all'}>
+      <input
+        ref={ref}
+        type="text"
+        id={id}
+        name={name}
+        aria-label={ariaLabel}
+        className={`text-center text-[32px] w-12 h-14 p-0 m-0 bg-transparent text-white/90 rounded-lg outline-none focus:ring-0 ${className}`}
+        defaultValue={defaultValue}
+        value={value}
+        onChange={handleInput}
+        onKeyDown={onKeyDown}
+        onPaste={onPaste}
+        maxLength={1}
+        inputMode='numeric'
+        pattern='[0-9]*'
+        disabled={disabled}
+        autoComplete='one-time-code'
+      />
+    </div>
   );
 });
 
