@@ -2,11 +2,8 @@
 import React, { useEffect } from "react"
 import DigitInput from "../atoms/DigitInput"
 import { useOtpInput } from "../../hooks"
+import { type OtpInputsProps } from "../../types"
 
-interface OtpInputsProps {
-  disabled?: boolean;
-  onChange?: (otpValue: string) => void;
-}
 const OtpInput: React.FC<OtpInputsProps> = ({ disabled, onChange, }) => {
   const {
     otpList,

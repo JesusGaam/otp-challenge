@@ -1,11 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
-interface UseObtainOtpReturn {
-  otp: string | null;
-  isError: boolean;
-  errorMessage: string | null;
-}
+import { type UseObtainOtpReturn } from '../types';
 
 const useObtainOtp = (): UseObtainOtpReturn => {
   const [otp, setOtp] = useState<string | null>(null);
