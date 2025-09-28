@@ -54,16 +54,5 @@ npm run dev
 - [X] **Mantener botón deshabilitado** si código es incorrecto o incompleto  
 
 ## Estilo y Diseño
-- [ ] Formulario **claro y fácil de usar**  
-- [ ] Aplicar estilos básicos con **CSS o TailwindCSS**  
-
-## Entrega
-- [ ] Subir código a un **repositorio público en GitHub**  
-- [ ] Compartir la **URL del repositorio**  
-
-## Criterios de Evaluación
-- [ ] Cumplimiento de la **funcionalidad especificada**  
-- [ ] **Código limpio y organizado** con React + TypeScript  
-- [ ] **Interacción fluida** con el teclado  
-- [ ] **Gestión de estado eficiente** en React  
-- [ ] (Opcional) Incluir **pruebas unitarias o de integración**
+- [X] Formulario **claro y fácil de usar**  
+- [X] Aplicar estilos básicos con **CSS o TailwindCSS**  
