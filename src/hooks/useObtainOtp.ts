@@ -1,28 +1,41 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-const useObtainOtp = () => {
+interface UseObtainOtpReturn {
+  otp: string | null;
+  isError: boolean;
+  errorMessage: string | null;
+}
+
+const useObtainOtp = (): UseObtainOtpReturn => {
   const [otp, setOtp] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    const otp = searchParams.get('otp');
+    const value = (searchParams.get('otp') || '').trim();
 
-    if (otp == null) {
-      setError('OTP parameter is missing in the URL');
+    if (!value) {
+      setOtp(null);
+      setErrorMessage('OTP parameter is missing in the URL');
+      setIsError(true);
+      return;
     }
 
-    if (!/^\d{4}$/.test(otp!)) {
-      setError('Invalid OTP format. OTP must be a 4-digit number.');
+    if (!/^\d{4}$/.test(value)) {
+      setOtp(value);
+      setErrorMessage('Invalid OTP format. OTP must be a 4-digit number.');
+      setIsError(true);
+      return;
     }
 
+    setOtp(value);
+    setErrorMessage(null);
+    setIsError(false);
+  }, [searchParams]);
 
-    setOtp(otp);
-
-  }, []);
-
-  return { otp, error };
+  return { otp, isError, errorMessage };
 }
 
 export default useObtainOtp;
