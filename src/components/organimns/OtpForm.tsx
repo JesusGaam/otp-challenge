@@ -11,11 +11,11 @@ interface OtpFormProps {
 const OtpForm: React.FC<OtpFormProps> = ({ className = '' }) => {
   const {
     inputOtp,
-    isErrorReceivedOtp,
-    receivedOtpError,
-    isValidOtp,
+    validationStatus,
+    validationMessage,
     onInputOtpChange,
     handleResendOtp,
+    handleOtpValidation,
   } = useOtpForm();
 
   return (
@@ -27,15 +27,15 @@ const OtpForm: React.FC<OtpFormProps> = ({ className = '' }) => {
         </p>
         <div className="flex flex-col items-center gap-3 pt-8">
           <OtpInput
-            disabled={receivedOtpError !== null}
             onChange={onInputOtpChange}
+            disabled={validationStatus === 'invalid'}
           />
-          {inputOtp.length === 4 && !isValidOtp && (
-            <div className="text-red-400">El código ingresado es incorrecto</div>
+          {validationStatus === 'error' && (
+            <div className="text-red-400">{validationMessage}</div>
           )}
         </div>
 
-        {isErrorReceivedOtp && (
+        {validationStatus === 'invalid' && (
           <NotificationMessage
             type='error'
             title='Código OTP no detectado'
@@ -55,7 +55,8 @@ const OtpForm: React.FC<OtpFormProps> = ({ className = '' }) => {
       </div>
       <div>
         <Button
-          variant={isValidOtp ? 'primary' : 'disabled'}
+          variant={inputOtp.length === 4 ? 'primary' : 'disabled'}
+          onClick={handleOtpValidation}
         >
           Continuar
         </Button>
