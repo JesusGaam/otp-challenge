@@ -38,6 +38,7 @@ const DigitInput = forwardRef<HTMLInputElement, DigitInputProps>(({
         pattern='[0-9]*'
         disabled={disabled}
         autoComplete='one-time-code'
+        placeholder='0'
       />
     </div>
   );
