@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { type DigitInputProps } from '../../types/forms';
+import { type DigitInputProps } from '../../types/components.types';
 
 const DigitInput = forwardRef<HTMLInputElement, DigitInputProps>(({
   id,

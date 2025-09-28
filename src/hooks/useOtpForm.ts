@@ -2,24 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { useObtainOtp } from '../hooks';
 import { generateRandomNumber } from '../utils';
+import { type UseOtpFormReturn, type ValidationOtpStatus } from "../types";
 
-export type ValidationOtpStatus =
-  | 'idle'
-  | 'validating'
-  | 'success'
-  | 'error'
-  | 'invalid';
 
-interface UseOtpFormReturn {
-  inputOtp: string;
-  receivedOtp: string | null;
-  validationMessage: string | null;
-  validationStatus: ValidationOtpStatus;
-  onInputOtpChange: (otp: string) => void;
-  handleResendOtp: () => void;
-  handleOtpValidation: () => void;
-  resetValidation: () => void;
-}
 
 const useOtpForm = (): UseOtpFormReturn => {
   const navigate = useNavigate();

@@ -3,10 +3,7 @@ import { useOtpForm } from '../../hooks';
 import OtpInput from '../molecules/OtpInput'
 import Button from '../atoms/Button';
 import NotificationMessage from '../molecules/NotificationMessage';
-
-interface OtpFormProps {
-  className?: string;
-}
+import { type OtpFormProps } from '../../types';
 
 const OtpForm: React.FC<OtpFormProps> = ({ className = '' }) => {
   const {

@@ -1,12 +1,6 @@
 import React from 'react';
 import waringIcon from '../../assets/warning-icon.svg';
-
-interface NotificationMessageProps {
-  type: 'error' | 'success' | 'info';
-  title: string;
-  message: string;
-  className?: string;
-}
+import { type NotificationMessageProps } from '../../types';
 
 const NotificationMessage: React.FC<NotificationMessageProps> = ({ type, title, message, children, className = '' }) => {
   return (

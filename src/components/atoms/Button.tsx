@@ -1,13 +1,6 @@
 import React from 'react'
 import { tv } from 'tailwind-variants'
-
-interface ButtonProps {
-  variant?: 'primary' | 'disabled';
-  size?: 'sm' | 'md' | 'lg';
-  className?: string;
-  children: React.ReactNode;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
+import { type ButtonProps } from '../../types';
 
 const Button: React.FC<ButtonProps> = ({
   size = 'lg',
