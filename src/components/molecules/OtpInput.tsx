@@ -21,7 +21,7 @@ const OtpInput: React.FC<OtpInputsProps> = ({ disabled, onChange, }) => {
     onChange?.(otpValue);
   }, [otpValue, onChange]);
 
-  return (<>
+  return (
     <div className="grid grid-cols-[repeat(4,48px)] gap-2">
       <div>
         <DigitInput
@@ -68,8 +68,7 @@ const OtpInput: React.FC<OtpInputsProps> = ({ disabled, onChange, }) => {
         />
       </div>
     </div>
-    <div>{otpValue}</div>
-  </>)
+  )
 }
 
 export default OtpInput
