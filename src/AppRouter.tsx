@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { pageRouteList } from "./constants";
 
@@ -11,7 +11,12 @@ export const Router = () => (
 );
 
 export default () => (
-  <BrowserRouter>
+  <BrowserRouter
+    future={{
+      v7_relativeSplatPath: true,
+      v7_startTransition: true,
+    }}
+  >
     <Suspense fallback={<div>loading...</div>}>
       <Router />
     </Suspense>

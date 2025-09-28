@@ -1,21 +1,12 @@
-import OtpInput from '../atoms/Input';
-import OtpForm from '../../test/OtpForm';
-
+import { } from 'react'
+import OtpForm from "../organimns/OtpForm";
 
 const OtpVerification = () => {
-
   return (
-    <div>
-      <h1>Verify OTP</h1>
-      <OtpInput
-        id='otp-1'
-      />
-
-      <OtpForm
-        length={4}
-        onChange={() => { }}
-        onComplete={() => { }}
-      />
+    <div className='min-h-screen px-6 md:px-8 flex flex-col justify-center items-center'>
+      <div className='w-full md:max-w-[700px]'>
+        <OtpForm className='min-h-screen md:min-h-auto py-8 md:p-0'/>
+      </div>
     </div>
   )
 }
