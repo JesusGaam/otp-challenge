@@ -44,7 +44,7 @@ const useOtpForm = (): UseOtpFormReturn => {
 
   const handleResendOtp = () => {
     const newCode = generateRandomNumber(4);
-    navigate(`/otp-verification?otp=${newCode}`, { replace: true });
+    navigate(`/?otp=${newCode}`, { replace: true });
     resetValidation();
   }
 
